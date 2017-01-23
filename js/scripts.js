@@ -14,30 +14,23 @@ $(function() {
     var inputtedTimeOfYear = $("input#timeOfYear").val();
     var inputtedNotes = $("input#notes").val();
 
-    var NewLocation = new Location(inputtedPlace, inputtedLandmark, inputtedTimeOfYear, inputtedNotes);
+    var newLocation = new Location(inputtedPlace, inputtedLandmark, inputtedTimeOfYear, inputtedNotes);
 
-    $("ul#places").append("<li><span class='place'>" + newLocation.place + "</span></li>");
+    $("ul#places").append("<li> <span class='currentPlace'> " + newLocation.place + "</span></li>");
+
+    $(".currentPlace").last().click(function(){
+      $("#show-places").show();
+      $("#show-places h2").text(newLocation.place);
+      $(".place").text(newLocation.place);
+      $(".landmark").text(newLocation.landmark);
+      $(".timeOfYear").text(newLocation.timeOfYear);
+      $(".notes").text(newLocation.notes);
+
+    });
   });
 });
 
-//business logic
-// function Contact(first, last) {
-  // this.firstName = first;
-//   this.lastName = last;
-// }
-//
-// // user interface logic
-// $(document).ready(function() {
-//   $("form#new-contact").submit(function(event) {
-//     event.preventDefault();
-//
-//     var inputtedFirstName = $("input#new-first-name").val();
-//     var inputtedLastName = $("input#new-last-name").val();
-//
-//     var newContact = new Contact(inputtedFirstName, inputtedLastName);
-//
-//     $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + "</span></li>");
-//
+
 //     $(".contact").click(function() {
 //       $("#show-contact").show();
 //       $("#show-contact h2").text(newContact.firstName);

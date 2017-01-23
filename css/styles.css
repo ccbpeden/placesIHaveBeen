@@ -2,11 +2,11 @@
   display: none;
 }
 
-.place {
+.currentPlace {
   cursor: pointer;
   color: #0088cc;
 }
 
-.place:hover {
+.currentPlace:hover {
   text-decoration: underline;
 }
